@@ -51,11 +51,11 @@ while True:
 ## OUTPUT:
 ## Server:
 
-<img width="715" height="866" alt="image" src="https://github.com/user-attachments/assets/a3fffe39-d972-49c5-ba3e-b34e6b54a593" />
+<img width="687" height="879" alt="image" src="https://github.com/user-attachments/assets/7ab55749-a8a1-48d0-a458-3c00a3888d04" />
 
 ## Client:
 
-<img width="873" height="855" alt="image" src="https://github.com/user-attachments/assets/001fb2cb-9a36-484d-8b26-66c47dba2ac2" />
+<img width="830" height="831" alt="image" src="https://github.com/user-attachments/assets/61a57c25-e4a2-424d-84ea-f631138f2e34" />
 
 ## RESULT:
   Thus, python program to perform stop and wait protocol was successfully executed.
