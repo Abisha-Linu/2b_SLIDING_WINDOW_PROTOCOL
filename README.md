@@ -1,13 +1,61 @@
 # 2b IMPLEMENTATION OF SLIDING WINDOW PROTOCOL
-## AIM
+## AIM:
+  To write a python program to perform sliding window protocol.
 ## ALGORITHM:
 1. Start the program.
-2. Get the frame size from the user
+2. Get the frame size from the user.
 3. To create the frame based on the user request.
 4. To send frames to server from the client side.
-5. If your frames reach the server it will send ACK signal to client
-6. Stop the Program
-## PROGRAM
-## OUPUT
-## RESULT
-Thus, python program to perform stop and wait protocol was successfully executed
+5. If your frames reach the server it will send ACK signal to client.
+6. Stop the program.
+## PROGRAM:
+## Server:
+```
+import socket
+server_socket = socket.socket()
+server_socket.bind(('localhost', 8000))
+server_socket.listen(1)
+
+print("Waiting for connection from client...")
+connection, addr = server_socket.accept()
+print(f"Connected to: {addr}")
+
+total_frames = int(input("Enter number of frames to send: "))
+frames = list(range(total_frames))
+window_size = int(input("Enter Window Size: "))
+
+start = 0  
+while start < len(frames):
+    end = start + window_size
+    frame_batch = frames[start:end]  
+    connection.send(str(frame_batch).encode())
+    ack = connection.recv(1024).decode()
+    if ack:
+        print(ack)
+        start = end
+```
+## Client:
+```
+import socket
+
+client_socket = socket.socket()
+client_socket.connect(('localhost', 8000))
+
+while True:
+    data = client_socket.recv(1024).decode()
+    if not data:
+        break
+    print(data)
+    client_socket.send("Acknowledgement received from the client".encode())
+```
+## OUTPUT:
+## Server:
+
+<img width="715" height="866" alt="image" src="https://github.com/user-attachments/assets/a3fffe39-d972-49c5-ba3e-b34e6b54a593" />
+
+## Client:
+
+<img width="873" height="855" alt="image" src="https://github.com/user-attachments/assets/001fb2cb-9a36-484d-8b26-66c47dba2ac2" />
+
+## RESULT:
+  Thus, python program to perform stop and wait protocol was successfully executed.
